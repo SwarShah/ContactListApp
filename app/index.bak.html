@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="contactListApp" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Contact List</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+  <script src="js/controller.js"></script>
+</head>
+<body ng-controller="ContactListCtrl">
+  Search: <input ng-model="query"/>
+  Sort by:<select ng-model="orderProp">
+	<option value="first">First Name</option>
+	<option value="last">Last Name</option>
+	<option value="extension">Extension</option>
+  </select>
+  <table>
+	<tr>
+		<th>Image</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>E-mail</th>
+		<th>Phone Number</th>
+	</tr>
+	<tr ng-repeat="contact in contacts | filter:query | orderBy:orderProp" class="contact">
+		<td class="image"><a href="#/contacts/{{contact.id}}"> <img height="50px" width="50px" ng-src="{{contact.imageUrl}}" /> </a></td>
+		<td class="first">{{contact.first}}</td>
+		<td class="last">{{contact.last}}</td>
+		<td class="email"><a href="mailto:{{contact.first+'.'+contact.last+'@lambtoncollege.ca'}}">Send Email</a></td>
+		<td class="phone">{{'519-542-7751 ext.' + contact.extension}}</td>
+	</tr>
+  </table>
+</body>
+</html>

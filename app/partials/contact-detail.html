@@ -1,0 +1,30 @@
+<a href="#/">Back</a> <br>
+
+<table class="table table-bordered">
+	<tr>
+		
+		<td>
+		<img ng-src="{{contact.imageUrl}}" />	
+		<h3>{{contact.first}} {{contact.last}}</h3>
+		<h4>{{contact.manager}}</h4>
+		</td>
+			
+	</tr>
+	<tr>
+		<td>Department: </td>
+		<td><span class="glyphicon glyphicon-home"> {{contact.department}}</span></td> 
+	</tr>
+	<tr>
+		<td>Office: </td>
+		<td><span class="glyphicon glyphicon-briefcase"> {{contact.office}}</span></td> 
+	</tr>
+	<tr>
+		<td>Extension: </td>
+		<td><span  class="glyphicon glyphicon-earphone"> {{contact.extension}}</span></td> 
+	</tr>
+	
+	<tr>
+		<td>Email: </td>
+		<td><span class="glyphicon glyphicon-envelope"> <a href="mailto:{{contact.first+'.'+contact.last+'@lambtoncollege.ca'}}">{{contact.first+'.'+contact.last+'@lambtoncollege.ca'}}</a></span></td>
+	</tr>
+</table>

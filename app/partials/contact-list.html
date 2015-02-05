@@ -1,0 +1,22 @@
+Search: <input ng-model="query" class="form-control"/>
+  Sort by:<select ng-model="orderProp" class="form-control dropdown">
+	<option value="first">First Name</option>
+	<option value="last">Last Name</option>
+	<option value="extension">Extension</option>
+  </select>
+  <table class="table table-hover">
+	<tr>
+		<th>Image</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>E-mail</th>
+		<th>Phone Number</th>
+	</tr>
+	<tr ng-repeat="contact in contacts | filter:query | orderBy:orderProp" class="contact">
+		<td class="image"><a href="#/contacts/{{contact.id}}"> <img ng-src="{{contact.imageUrl}}" class="img-circle"/> </a></td>
+		<td class="first"><a href="#/contacts/{{contact.id}}">{{contact.first}}</a></td>
+		<td class="last"><a href="#/contacts/{{contact.id}}">{{contact.last}}</a></td>
+		<td class="email"><a href="mailto:{{contact.first+'.'+contact.last+'@lambtoncollege.ca'}}">{{contact.first+'.'+contact.last+'@lambtoncollege.ca'}}</a></td>
+		<td class="phone">{{'519-542-7751 ext.' + contact.extension}}</td>
+	</tr>
+  </table>
